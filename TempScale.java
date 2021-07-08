@@ -1,0 +1,6 @@
+package search;
+
+public enum TempScale {
+CELCIUS, FAHRENHEIT, KELVIN, RANKINE,
+NEWTON , DELISLE, REAUMUR, ROMER, LEIDEN
+}
