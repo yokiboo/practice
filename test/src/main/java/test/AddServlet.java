@@ -5,9 +5,11 @@ import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class AddServlet extends HttpServlet {
 	
@@ -19,10 +21,13 @@ public void doGet(HttpServletRequest req, HttpServletResponse res ) throws IOExc
 		
 		int k = i+j;
 		
-		req.setAttribute("k", k);
+		Cookie cookie = new Cookie("k",k+"");
+		res.addCookie(cookie);
 		
-		RequestDispatcher rd = req.getRequestDispatcher("sq");
-		rd.forward(req, res);
+		res.sendRedirect("sq");  // URL rewriting
+		
+//		RequestDispatcher rd = req.getRequestDispatcher("sq");
+//		rd.forward(req, res);
 	}
 
 }
